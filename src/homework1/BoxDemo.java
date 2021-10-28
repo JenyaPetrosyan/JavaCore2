@@ -2,8 +2,8 @@ package homework1;
 
 public class BoxDemo {
     public static void main(String[] args) {
-        Box MyBox = new Box();
-        Box MyBox1 = new Box();
+        Box1.Box MyBox = new Box1.Box();
+        Box1.Box MyBox1 = new Box1.Box();
         double vol;
         MyBox.width = 10;
         MyBox.height = 20;

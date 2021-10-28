@@ -8,4 +8,15 @@ public class Box1 {
     double volume() {
         return width * height * depth;
     }
+
+    public static class Box {
+        double width;
+        double height;
+        double depht;
+
+        void volume() {
+            System.out.print( "volume:");
+            System.out.println(width * height * depht);
+        }
+    }
 }
