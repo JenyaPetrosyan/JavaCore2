@@ -1,34 +1,68 @@
 package homework.author;
 
 public class AuthorStorage {
-    private Author[] array = new Author[10];
+    private Author[] authors = new Author[10];
     private int size = 0;
 
+
     public void add(Author author) {
-        if (array.length == size) {
+        if (authors.length == size) {
             extend();
         }
-        array[size++] = author;
+        boolean isFound = false;
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getEmail().equals(author.getEmail())) {
+                isFound = true;
+                break;
+            }
+        }
+        if (isFound) {
+            System.err.println("Invalid mail. Author with this email already exist");
+        } else {
+            authors[size++] = author;
+        }
     }
 
     private void extend() {
-        Author[] result = new Author[array.length + 10];
-        for (int i = 0; i < array.length; i++) {
-            result[i] = array[i];
-        }
-        array = result;
-    }
+        Author[] tmp = new Author[authors.length + 10];
 
-    public Author getByIndex(int index) {
-        if (index < 0 || index > array.length - 1) {
-            System.out.println(" no index");
+        System.arraycopy(authors, 0, tmp, 0, authors.length);
 
-        }return array[index];
+        authors = tmp;
     }
 
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.print(array[i] + " ");
+            System.out.println(authors[i]);
         }
+    }
+
+    public void searchByName(String keyword) {
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getName().contains(keyword) ||
+                    authors[i].getSurname().contains(keyword)) {
+                System.out.println(authors[i]);
+            }
+        }
+    }
+
+    public void searchAuthorByAge(int minAge, int maxAge) {
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getAge() >= minAge &&
+                    authors[i].getAge() <= maxAge) {
+
+                System.out.println(authors[i]);
+            }
+        }
+
+    }
+
+    public Author getByEmail(String email) {
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getEmail().equals(email)) {
+                return authors[i];
+            }
+        }
+        return null;
     }
 }
