@@ -58,13 +58,13 @@ public class AutherTest {
         int minAge = Integer.parseInt(scanner.nextLine());
         System.out.println("Please input max age");
         int maxAge = Integer.parseInt(scanner.nextLine());
-        authorStorage.searchAuthorByage(minAge, maxAge);
+        authorStorage.searchAuthorByAge(minAge, maxAge);
     }
 
     private static void searchAuthor() {
         System.out.println("Please input keyword");
         String keyword = scanner.nextLine();
-        authorStorage.searchAuthor(keyword);
+        authorStorage.searchByName(keyword);
     }
 
     private static void addAuthor() {

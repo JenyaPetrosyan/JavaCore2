@@ -51,7 +51,7 @@ public class AuthorBookTest {
                     searchByAge();
                     break;
                 case SEARCH_BOOKS_BY_TITLE:
-                    SearchBooksByTitle();
+                    searchBooksByTitle();
                     break;
                 case PRINT_AUTHORS:
                     authorStorage.print();
@@ -63,13 +63,13 @@ public class AuthorBookTest {
                     SearchBooksByAuthor();
                     break;
                 case COUNT_BOOKS_BY_AUTHOR:
-                    CountBookByAuthor();
+                    countBookByAuthor();
                     break;
                 case CHANGE_AUTHOR:
-                    ChangeAuthor();
+                    changeAuthor();
                     break;
                 case CHANGE_BOOK_AUTHOR:
-                    ChangeBookAuthor();
+                    changeBookAuthor();
                     break;
                 case CHANGE_BOOK_TITLE:
                     changebooktitle();
@@ -108,7 +108,7 @@ public class AuthorBookTest {
     }
 
 
-    private static void ChangeBookAuthor() {
+    private static void changeBookAuthor() {
         System.out.println("please input book's title");
         String title = scanner.nextLine();
         Book book = bookStorage.searchByTitle(title);
@@ -124,12 +124,12 @@ public class AuthorBookTest {
             }
         } else {
             System.out.println("invalid title");
-            ChangeBookAuthor();
+            changebooktitle();
         }
     }
 
 
-    private static void ChangeAuthor() {
+    private static void changeAuthor() {
         System.out.println("please input author's email");
         String email = scanner.nextLine();
         Author author = authorStorage.getByEmail(email);
@@ -149,12 +149,12 @@ public class AuthorBookTest {
             System.out.println("Thank you! Author's data  has been changed");
         } else {
             System.out.println("invalid email");
-            ChangeAuthor();
+            changeAuthor();
         }
     }
 
 
-    private static void CountBookByAuthor() {
+    private static void countBookByAuthor() {
         System.out.println("please input author's email");
         String keyword = scanner.nextLine();
         Author author = authorStorage.getByEmail(keyword);
@@ -164,7 +164,7 @@ public class AuthorBookTest {
 
     }
 
-    private static void SearchBooksByTitle() {
+    private static void searchBooksByTitle() {
         System.out.println("please input keyword");
         String keyword = scanner.nextLine();
         bookStorage.searchByTitle(keyword);

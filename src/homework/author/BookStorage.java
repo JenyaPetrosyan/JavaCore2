@@ -54,11 +54,6 @@ public class BookStorage {
         return count;
     }
 
-    //delete(int index)
-//for (int i = index + 1; i < size; i++) {
-//            books[i - 1] = books[i];
-//        }
-//        size--;
     public void deletebook(String title) {
         for (int i = 0; i < size; i++) {
             if (books[i].getTitle().equals(title)) {
