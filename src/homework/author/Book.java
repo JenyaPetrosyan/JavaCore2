@@ -1,6 +1,7 @@
-package homework.author;
+package homework.Author;
 
-public class Book{
+public class Book {
+
     private String title;
     private String description;
     private double price;
@@ -15,7 +16,7 @@ public class Book{
         this.author = author;
     }
 
-    public Book() {
+    public Book(String vordus, String dastiarakutyun_, double price, int count, String s) {
 
     }
 
@@ -70,6 +71,4 @@ public class Book{
 
                 '}';
     }
-
 }
-

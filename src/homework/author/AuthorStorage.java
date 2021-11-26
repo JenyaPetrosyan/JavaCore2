@@ -1,33 +1,19 @@
-package homework.author;
+package homework.Author;
 
 public class AuthorStorage {
-    private Author[] authors = new Author[10];
-    private int size = 0;
-
+    private Author[] authors = new Author[16];
+    private int size;
 
     public void add(Author author) {
         if (authors.length == size) {
             extend();
         }
-        boolean isFound = false;
-        for (int i = 0; i < size; i++) {
-            if (authors[i].getEmail().equals(author.getEmail())) {
-                isFound = true;
-                break;
-            }
-        }
-        if (isFound) {
-            System.err.println("Invalid mail. Author with this email already exist");
-        } else {
-            authors[size++] = author;
-        }
+        authors[size++] = author;
     }
 
     private void extend() {
         Author[] tmp = new Author[authors.length + 10];
-
         System.arraycopy(authors, 0, tmp, 0, authors.length);
-
         authors = tmp;
     }
 
@@ -46,15 +32,13 @@ public class AuthorStorage {
         }
     }
 
-    public void searchAuthorByAge(int minAge, int maxAge) {
+    public void searchByAge(int minAge, int maxAge) {
         for (int i = 0; i < size; i++) {
             if (authors[i].getAge() >= minAge &&
                     authors[i].getAge() <= maxAge) {
-
                 System.out.println(authors[i]);
             }
         }
-
     }
 
     public Author getByEmail(String email) {

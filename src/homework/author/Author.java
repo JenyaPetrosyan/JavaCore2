@@ -1,8 +1,6 @@
-package homework.author;
+package homework.Author;
 
 public class Author {
-
-
     private String name;
     private String surname;
     private int age;
@@ -71,7 +69,4 @@ public class Author {
                 '}';
     }
 
-
-
-    }
-
+}
